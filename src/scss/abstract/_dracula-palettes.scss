@@ -1,0 +1,13 @@
+@use "../abstract/palette-generator" as pg;
+@use "dracula-colors" as colors;
+
+$bg-palette: pg.createPalette(colors.$background);
+$current-palette: pg.createPalette(colors.$current-line);
+$foreground-palette: pg.createPalette(colors.$foreground);
+$comment-palette: pg.createPalette(colors.$comment);
+$cyan-palette: pg.createPalette(colors.$cyan);
+$green-palette: pg.createPalette(colors.$green);
+$orange-palette: pg.createPalette(colors.$orange);
+$pink-palette: pg.createPalette(colors.$pink);
+$purple-palette: pg.createPalette(colors.$purple);
+$red-palette: pg.createPalette(colors.$red);

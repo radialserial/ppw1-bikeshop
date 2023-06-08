@@ -1,0 +1,87 @@
+@use "@angular/material" as mat;
+@use "@angular/material/theming" as theme;
+@use "../abstract/palette-generator" as pg;
+@use "sass:map";
+
+@include mat.core();
+
+@function makeDarkTheme($primary-palette, $accent-palette, $warn-palette, $background-palette, $foreground-palette) {
+  $primary: theme.mat-palette($primary-palette);
+  $warn: theme.mat-palette($warn-palette);
+  $accent: theme.mat-palette($accent-palette);
+
+  $theme: theme.mat-define-dark-theme(
+    (
+      color: (
+        primary: $primary,
+        accent: $accent,
+        warn: $warn,
+      ),
+      density: 0,
+    )
+  );
+
+  $background: (
+    status-bar: map.get($background-palette, 900),
+    app-bar: map.get($background-palette, 900),
+    background: map.get($background-palette, 500),
+    hover: map.get($foreground-palette, 500),
+    card: map.get($background-palette, 800),
+    dialog: map.get($background-palette, 800),
+    disabled-button: map.get($foreground-palette, 500),
+    raised-button: map.get($background-palette, 800),
+    focused-button: map.get($background-palette, 200),
+    selected-button: map.get($background-palette, 900),
+    selected-disabled-button: map.get($background-palette, 800),
+    disabled-button-toggle: map.get($background-palette, 900),
+    unselected-chip: map.get($background-palette, 700),
+    disabled-list-option: map.get($foreground-palette, 500),
+    tooltip: map.get($background-palette, 700),
+  );
+
+  $foreground: (
+    base: map.get($foreground-palette, 500),
+    divider: map.get($foreground-palette, 500),
+    dividers: map.get($foreground-palette, 500),
+    disabled: map.get($foreground-palette, 700),
+    disabled-button: map.get($foreground-palette, 800),
+    disabled-text: map.get($foreground-palette, 800),
+    elevation: map.get($background-palette, 500),
+    hint-text: map.get($foreground-palette, 500),
+    secondary-text: map.get($foreground-palette, 500),
+    icon: map.get($foreground-palette, 500),
+    icons: map.get($foreground-palette, 500),
+    text: map.get($foreground-palette, 500),
+    slider-min: map.get($foreground-palette, 500),
+    slider-off: map.get($foreground-palette, 200),
+    slider-off-active: map.get($foreground-palette, 200),
+  );
+
+  $theme: map.set($theme, color, background, $background);
+  $theme: map.set($theme, color, foreground, $foreground);
+
+  @return $theme;
+}
+
+@function makeLightTheme($primary-palette, $accent-palette, $warn-palette, $background-palette, $foreground-palette) {
+  $primary: theme.mat-palette($primary-palette);
+  $warn: theme.mat-palette($warn-palette);
+  $accent: theme.mat-palette($accent-palette);
+  $background: theme.mat-palette($background-palette);
+  $foreground: theme.mat-palette($foreground-palette);
+
+  $theme: theme.mat-define-light-theme(
+    (
+      color: (
+        primary: $primary,
+        accent: $accent,
+        warn: $warn,
+        foreground: $foreground,
+        background: $background,
+      ),
+      density: 0,
+    )
+  );
+
+  @return $theme;
+}

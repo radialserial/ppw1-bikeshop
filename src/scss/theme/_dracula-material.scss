@@ -1,0 +1,13 @@
+@use "../abstract/dracula-palettes" as dp;
+@use "@angular/material" as mat;
+@use "material" as themer;
+
+$theme: themer.makeDarkTheme(
+  dp.$current-palette,
+  dp.$pink-palette,
+  dp.$red-palette,
+  dp.$bg-palette,
+  dp.$foreground-palette
+);
+
+@include mat.all-component-themes($theme);
