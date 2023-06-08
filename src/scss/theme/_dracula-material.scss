@@ -2,11 +2,11 @@
 @use "material" as mat;
 
 @include mat.makeDarkTheme(
-  dp.$current-palette,
+  dp.$purple-palette,
   dp.$pink-palette,
   dp.$red-palette,
   dp.$bg-palette,
-  dp.$foreground-palette,
+  dp.$fg-palette,
   "sans-serif",
   1
 );

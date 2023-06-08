@@ -1,0 +1,16 @@
+@use "/src/scss/theme/dracula-palettes" as dp;
+@use "sass:map";
+
+a {
+  color: map.get(dp.$current-palette, 500);
+  &:hover {
+    color: map.get(dp.$comment-palette, 500);
+  }
+  &:active {
+    color: map.get(dp.$cyan-palette, 500);
+  }
+}
+
+mat-card-content {
+  box-shadow: 3px 3px 2px map.get(dp.$bg-palette, 700);
+}

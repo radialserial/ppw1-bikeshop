@@ -3,7 +3,7 @@
 
 $bg-palette: pg.createPalette(colors.$background);
 $current-palette: pg.createPalette(colors.$current-line);
-$foreground-palette: pg.createPalette(colors.$foreground);
+$fg-palette: pg.createPalette(colors.$foreground);
 $comment-palette: pg.createPalette(colors.$comment);
 $cyan-palette: pg.createPalette(colors.$cyan);
 $green-palette: pg.createPalette(colors.$green);
