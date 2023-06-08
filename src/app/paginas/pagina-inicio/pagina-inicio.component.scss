@@ -1,0 +1,38 @@
+@use "sass:map";
+@use "/src/scss/theme/dracula-palettes" as dp;
+
+i {
+  transition: 0.1s;
+}
+
+.fa-instagram:hover {
+  color: #e32e7f;
+}
+.fa-facebook:hover {
+  color: #15a3fa;
+}
+
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.faixa-topo {
+  background-color: map.get(dp.$bg-palette, 50);
+  text-align: center;
+  & > a {
+    margin-inline: 0.5rem;
+    font-size: 1.3em;
+    color: map.get(dp.$bg-palette, 400);
+    text-decoration: none;
+  }
+}
+
+.container-cartao {
+  text-align: center;
+}
+
+.pesquisa-produtos {
+  width: min(80vw, 50ch);
+}
