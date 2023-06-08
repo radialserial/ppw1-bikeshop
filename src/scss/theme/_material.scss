@@ -1,14 +1,41 @@
 @use "@angular/material" as mat;
 @use "@angular/material/theming" as theme;
-@use "../abstract/palette-generator" as pg;
+@use "palette-generator" as pg;
 @use "sass:map";
 
 @include mat.core();
 
-@function makeDarkTheme($primary-palette, $accent-palette, $warn-palette, $background-palette, $foreground-palette) {
+@mixin makeDarkTheme(
+  $primary-palette,
+  $accent-palette,
+  $warn-palette,
+  $background-palette,
+  $foreground-palette,
+  $typography-font,
+  $font-multiplier
+) {
   $primary: theme.mat-palette($primary-palette);
   $warn: theme.mat-palette($warn-palette);
   $accent: theme.mat-palette($accent-palette);
+
+  $typography-config: mat.define-typography-config(
+    $font-family: $typography-font,
+    $headline-1:
+      mat.define-typography-level(4.5rem * $font-multiplier, 4.5rem * $font-multiplier, 900, $letter-spacing: -0.05em),
+    $headline-2:
+      mat.define-typography-level(4rem * $font-multiplier, 4rem * $font-multiplier, 400, $letter-spacing: -0.02em),
+    $headline-3:
+      mat.define-typography-level(3.6rem * $font-multiplier, 3.6rem * $font-multiplier, 900, $letter-spacing: -0.005em),
+    $headline-4: mat.define-typography-level(3.1rem * $font-multiplier, 3.1rem * $font-multiplier, 900),
+    $headline-5: mat.define-typography-level(2.6rem * $font-multiplier, 2.6rem * $font-multiplier, 900),
+    $headline-6: mat.define-typography-level(2.1rem * $font-multiplier, 2.1rem * $font-multiplier, 800),
+    $subtitle-1: mat.define-typography-level(1.6rem * $font-multiplier, 1.6rem * $font-multiplier, 600),
+    $body-1: mat.define-typography-level(1rem * $font-multiplier, 1rem * $font-multiplier, 500),
+    $body-2: mat.define-typography-level(1rem * $font-multiplier, 1rem * $font-multiplier, 400),
+    $subtitle-2: mat.define-typography-level(1rem * $font-multiplier, 1rem * $font-multiplier, 400),
+    $caption: mat.define-typography-level(0.8rem * $font-multiplier, 0.8rem * $font-multiplier, 400),
+    $button: mat.define-typography-level(0.9rem * $font-multiplier, 0.9rem * $font-multiplier, 600),
+  );
 
   $theme: theme.mat-define-dark-theme(
     (
@@ -60,28 +87,6 @@
   $theme: map.set($theme, color, background, $background);
   $theme: map.set($theme, color, foreground, $foreground);
 
-  @return $theme;
-}
-
-@function makeLightTheme($primary-palette, $accent-palette, $warn-palette, $background-palette, $foreground-palette) {
-  $primary: theme.mat-palette($primary-palette);
-  $warn: theme.mat-palette($warn-palette);
-  $accent: theme.mat-palette($accent-palette);
-  $background: theme.mat-palette($background-palette);
-  $foreground: theme.mat-palette($foreground-palette);
-
-  $theme: theme.mat-define-light-theme(
-    (
-      color: (
-        primary: $primary,
-        accent: $accent,
-        warn: $warn,
-        foreground: $foreground,
-        background: $background,
-      ),
-      density: 0,
-    )
-  );
-
-  @return $theme;
+  @include mat.all-component-themes($theme);
+  @include mat.typography-hierarchy($typography-config);
 }

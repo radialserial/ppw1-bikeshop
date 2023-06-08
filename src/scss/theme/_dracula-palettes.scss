@@ -1,4 +1,4 @@
-@use "../abstract/palette-generator" as pg;
+@use "palette-generator" as pg;
 @use "dracula-colors" as colors;
 
 $bg-palette: pg.createPalette(colors.$background);
