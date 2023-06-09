@@ -5,6 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +15,8 @@ import { PaginaInicioComponent } from './paginas/pagina-inicio/pagina-inicio.com
 @NgModule({
   declarations: [
     AppComponent,
-    PaginaInicioComponent
+    PaginaInicioComponent,
+    MenuSidenavComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,6 +27,7 @@ import { PaginaInicioComponent } from './paginas/pagina-inicio/pagina-inicio.com
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
+    MatSidenavModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

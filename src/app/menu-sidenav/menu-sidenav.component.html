@@ -1,0 +1,21 @@
+<div>
+
+  <mat-drawer-container autosize>
+    <mat-drawer #drawer class="menu-drawer" mode="side">
+      <ul class="page-list">
+        <li *ngFor="let page of pages">
+          <button mat-button class="button-list" routerLink="{{page.url}}">
+            {{ page.name }}
+          </button>
+        </li>
+      </ul>
+    </mat-drawer>
+  </mat-drawer-container>
+
+  <button class="button-open" mat-button (click)="drawer.toggle()" (blur)="drawer.close()">
+    <mat-icon>
+      chevron_right
+    </mat-icon>
+  </button>
+
+</div>

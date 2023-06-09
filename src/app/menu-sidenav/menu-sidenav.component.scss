@@ -1,0 +1,34 @@
+@use "/src/scss/theme/dracula-palettes" as dp;
+@use "sass:map";
+
+mat-drawer-container {
+  position: fixed;
+  height: 100%;
+  top: 0;
+  z-index: 2000;
+  box-shadow: 2px 0px 5px map.get(dp.$bg-palette, 800);
+}
+
+.page-list {
+  margin-top: 100px;
+}
+
+.button-open {
+  position: fixed;
+  z-index: 1000;
+}
+
+.button-list {
+  width: 100%;
+}
+
+.mat-drawer.mat-drawer-side {
+  width: min(200px, 40vw);
+  border: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
