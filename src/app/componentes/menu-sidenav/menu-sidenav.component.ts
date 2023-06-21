@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Page } from '../util/page';
-import { PAGES } from '../util/pages';
+import { Page } from '../../util/page';
+import { PAGES } from '../../util/pages';
 
 @Component({
   selector: 'app-menu-sidenav',

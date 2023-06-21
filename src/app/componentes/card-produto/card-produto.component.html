@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-content>
+
+    <img src="/assets/images/products/{{produto.image}}" alt="imagem do produto">
+
+    <div class="descricao">
+      <mat-card-title>
+        <h2>
+          {{produto.name}}
+        </h2>
+      </mat-card-title>
+
+      <p>
+        R${{produto.price}}
+      </p>
+
+      <mat-checkbox id="checkbox-{{produto.id}}"></mat-checkbox>
+    </div>
+
+  </mat-card-content>
+</mat-card>

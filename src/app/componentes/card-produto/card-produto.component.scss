@@ -1,0 +1,22 @@
+@use "/src/scss/theme/dracula-palettes" as dp;
+@use "sass:map";
+
+img {
+  max-width: min(40vw, 200px);
+  max-height: min(40vw, 200px);
+  padding-inline: 2vw;
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: row;
+}
+
+mat-card {
+  padding: 10px;
+}
+
+p {
+  margin-top: 2vw;
+  color: map.get(dp.$bg-palette, 200);
+}
